@@ -656,6 +656,127 @@ nav.main-nav {
 }
 
 /* =========================================================
+   EVENTOS NA LOJA
+   ========================================================= */
+.eventos {
+  padding: 4.5rem 0 1rem;
+  text-align: center;
+}
+
+.eventos-sub {
+  max-width: 480px;
+  margin: 0.6rem auto 0;
+  color: #6b5a62;
+  font-size: 0.95rem;
+}
+
+.evento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.evento-card {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1.2rem;
+  background: var(--branco);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.4rem;
+  position: relative;
+}
+
+.evento-data {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rosa-escuro), var(--rosa));
+  border: 3px dashed rgba(255, 255, 255, 0.6);
+  color: var(--branco);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.evento-dia {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.evento-numero {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.evento-tag {
+  display: inline-block;
+  background: var(--creme-forte);
+  color: var(--rosa-escuro);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+.evento-info h3 {
+  font-size: 1.15rem;
+  color: var(--vinho);
+  margin-bottom: 0.4rem;
+}
+
+.evento-info p {
+  font-size: 0.88rem;
+  color: #5c5058;
+  margin-bottom: 0.7rem;
+}
+
+.evento-destaques {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.evento-destaques li {
+  background: var(--creme);
+  border: 1px solid var(--creme-forte);
+  color: var(--vinho);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.eventos-vazio {
+  grid-column: 1 / -1;
+  padding: 2.5rem;
+  color: #8a7a82;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  border: var(--dash);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 760px) {
+  .evento-grid { grid-template-columns: 1fr; }
+  .evento-card { grid-template-columns: 72px 1fr; }
+  .evento-data { width: 72px; height: 72px; }
+  .evento-numero { font-size: 1.05rem; }
+}
+
+/* =========================================================
    NEWSLETTER
    ========================================================= */
 .newsletter {
