@@ -13,11 +13,12 @@
     <!-- ===================== BARRA UTILITÁRIA ===================== -->
     <div class="topbar">
       <div class="container">
-        <span>Frete grátis para compras acima de R$ 250</span>
+        <span>Reserve sua peça e combine o pagamento com a gente</span>
         <div class="topbar-links">
-          <a href="#contato">Ajuda</a>
-          <a href="#contato">Minha Conta</a>
-          <a href="#contato">Trocas e Devoluções</a>
+          <!-- Troque o número abaixo (com DDI 55 e DDD) pelo WhatsApp real da loja -->
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp: (11) 99999-9999</a>
+          <!-- Troque @sualoja pelo Instagram real -->
+          <a href="https://instagram.com/sualoja" target="_blank" rel="noopener">@sualoja</a>
         </div>
       </div>
     </div>
@@ -41,14 +42,11 @@
         </form>
 
         <div class="header-actions">
-          <button class="icon-btn" id="btnConta" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
-            Conta
-          </button>
-          <button class="icon-btn" id="btnFavoritos" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-8-4.6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.4-8 11-8 11z"/></svg>
-            Favoritos
-          </button>
+          <!-- Troque o número abaixo pelo WhatsApp real da loja -->
+          <a class="icon-btn" href="https://wa.me/5511999999999" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            WhatsApp
+          </a>
           <button class="icon-btn" id="btnCart" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
             Carrinho
@@ -92,20 +90,20 @@
     <section class="beneficios">
       <div class="container">
         <div class="beneficio">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          <div><strong>Frete grátis</strong>acima de R$ 250</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/></svg>
+          <div><strong>Reserve sua peça</strong>e finalize o pagamento depois</div>
         </div>
         <div class="beneficio">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20"/></svg>
-          <div><strong>Pix, boleto ou cartão</strong>em até 6x sem juros</div>
+          <div><strong>Pagamento via Pix</strong>combinado direto com a gente</div>
         </div>
         <div class="beneficio">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/></svg>
-          <div><strong>Troca grátis</strong>em até 30 dias</div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <div><strong>Atendimento direto</strong>pelo WhatsApp</div>
         </div>
         <div class="beneficio">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-8-4.6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.4-8 11-8 11z"/></svg>
-          <div><strong>Compra segura</strong>ambiente 100% protegido</div>
+          <div><strong>Peças limitadas</strong>lotes pequenos e exclusivos</div>
         </div>
       </div>
     </section>
@@ -145,18 +143,6 @@
       <div class="produto-grid" id="produtoGrid"></div>
     </section>
 
-    <!-- ===================== NEWSLETTER ===================== -->
-    <section class="newsletter">
-      <div class="container">
-        <span class="eyebrow">Fique por dentro</span>
-        <h2 class="section-title">Receba novidades em primeira mão</h2>
-        <form id="newsletterForm">
-          <input type="email" required placeholder="Seu melhor e-mail" aria-label="E-mail para newsletter" />
-          <button type="submit" class="btn btn-primary">Quero receber</button>
-        </form>
-      </div>
-    </section>
-
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer" id="contato">
       <div class="container footer-grid">
@@ -168,23 +154,17 @@
           <p>Moda feminina e masculina com identidade. Peças pensadas para durar no seu guarda-roupa e na sua história.</p>
         </div>
         <div class="footer-col">
-          <h4>Institucional</h4>
-          <a href="#">Sobre nós</a>
-          <a href="#">Trabalhe conosco</a>
-          <a href="#">Política de privacidade</a>
-          <a href="#">Trocas e devoluções</a>
-        </div>
-        <div class="footer-col">
           <h4>Categorias</h4>
           <a href="#produtos" data-filter="feminino">Roupas Femininas</a>
           <a href="#produtos" data-filter="masculino">Roupas Masculinas</a>
           <a href="#produtos" data-filter="novidade">Novidades</a>
         </div>
         <div class="footer-col">
-          <h4>Atendimento</h4>
-          <p>contato@bellamodas.com.br</p>
-          <p>(11) 4000-0000</p>
-          <p>Seg a Sex, 9h às 18h</p>
+          <h4>Fale com a gente</h4>
+          <!-- Troque os dados abaixo pelos reais da loja -->
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp: (11) 99999-9999</a>
+          <a href="https://instagram.com/sualoja" target="_blank" rel="noopener">Instagram: @sualoja</a>
+          <p>Atendido por: Nome da Dona (proprietária) e Nome da Vendedora</p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -206,7 +186,7 @@
           <span>Subtotal</span>
           <span id="cartSubtotal">R$ 0,00</span>
         </div>
-        <button class="btn btn-primary" id="btnCheckout">Finalizar Compra</button>
+        <button class="btn btn-primary" id="btnCheckout">Reservar Peças</button>
       </div>
     </aside>
 
@@ -216,68 +196,44 @@
         <button class="modal-close" id="checkoutClose" aria-label="Fechar">&times;</button>
 
         <div id="checkoutForm">
-          <h3>Finalizar Compra</h3>
-          <p class="aviso">Ambiente de demonstração — nenhuma cobrança real será feita. Para pagamentos reais, integre um gateway como Stripe, Mercado Pago ou PagSeguro no backend.</p>
+          <h3>Reservar Peças</h3>
+          <p class="aviso">Suas peças ficam reservadas aguardando pagamento. Ao confirmar, você será direcionada(o) ao WhatsApp da loja com o pedido pronto — combinamos ali a entrega/retirada e você paga via Pix.</p>
 
           <form id="formPedido">
             <div class="form-group">
               <label for="nomeCompleto">Nome completo</label>
               <input type="text" id="nomeCompleto" required />
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" required />
-              </div>
-              <div class="form-group">
-                <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" required />
-              </div>
-            </div>
             <div class="form-group">
-              <label for="endereco">Endereço de entrega</label>
-              <input type="text" id="endereco" required />
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" required />
-              </div>
-              <div class="form-group">
-                <label for="cep">CEP</label>
-                <input type="text" id="cep" required />
-              </div>
+              <label for="telefone">Seu WhatsApp</label>
+              <input type="tel" id="telefone" placeholder="(11) 99999-9999" required />
             </div>
 
-            <label style="display:block; margin-bottom:0.5rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--vinho);">Forma de pagamento</label>
+            <label style="display:block; margin-bottom:0.5rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--vinho);">Como prefere receber</label>
             <div class="pagamento-opcoes">
               <label>
-                <input type="radio" name="pagamento" value="cartao" checked />
-                <span>Cartão</span>
+                <input type="radio" name="entrega" value="retirada" checked />
+                <span>Retirar na loja</span>
               </label>
               <label>
-                <input type="radio" name="pagamento" value="pix" />
-                <span>Pix</span>
-              </label>
-              <label>
-                <input type="radio" name="pagamento" value="boleto" />
-                <span>Boleto</span>
+                <input type="radio" name="entrega" value="entrega" />
+                <span>Combinar entrega</span>
               </label>
             </div>
 
             <div class="cart-subtotal">
-              <span>Total do pedido</span>
+              <span>Total da reserva</span>
               <span id="checkoutTotal">R$ 0,00</span>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;">Confirmar Pedido</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Reservar e Falar no WhatsApp</button>
           </form>
         </div>
 
         <div id="checkoutConfirmacao" class="confirmacao" style="display:none;">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-          <h3>Pedido confirmado!</h3>
-          <p id="confirmacaoTexto">Obrigado pela compra. Enviamos os detalhes para o seu e-mail.</p>
+          <h3>Peças reservadas!</h3>
+          <p id="confirmacaoTexto">Abrimos o WhatsApp com o seu pedido. Finalize o pagamento via Pix por lá para confirmarmos a reserva.</p>
           <button class="btn btn-primary" id="fecharConfirmacao">Continuar comprando</button>
         </div>
       </div>
