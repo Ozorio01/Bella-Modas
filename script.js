@@ -5,8 +5,71 @@
 // ---------- Dados da loja ----------
 // Edite aqui: número de WhatsApp com DDI 55 + DDD, sem espaços/traços.
 const LOJA = {
-  whatsapp: "+55(19)98116-5995",
+  whatsapp: "5511999999999",
 };
+
+// ---------- Eventos na loja ----------
+// Edite, adicione ou remova eventos aqui. Deixe a lista vazia ([]) quando
+// não houver nenhum evento programado — a seção mostra um aviso automático.
+const EVENTOS = [
+  {
+    dataCurta: "SÁB",
+    dataNumero: "8/8",
+    tag: "Evento especial",
+    titulo: "Visita da Jéssica — Furo Humanizado",
+    descricao: "Aplicação de piercing e brincos com todo cuidado e segurança.",
+    destaques: [],
+  },
+  {
+    dataCurta: "SÁB",
+    dataNumero: "8/8",
+    tag: "Parceria",
+    titulo: "Josi Boutique — Semijoias",
+    descricao: "Venda especial de semijoias com Veridiana Quirino, direto na loja.",
+    destaques: [],
+  },
+  {
+    dataCurta: "Toda",
+    dataNumero: "estação",
+    tag: "Promoção",
+    titulo: "Outono & Inverno em promoção",
+    descricao: "Toda a coleção da estação com desconto no débito, crédito ou Pix.",
+    destaques: ["10% off", "20% off", "30% off"],
+  },
+];
+
+function renderizarEventos() {
+  const grid = document.getElementById("eventoGrid");
+  if (!grid) return;
+
+  if (EVENTOS.length === 0) {
+    grid.innerHTML = `<p class="eventos-vazio">Nenhum evento programado no momento. Fique de olho no nosso Instagram para as próximas novidades!</p>`;
+    return;
+  }
+
+  grid.innerHTML = EVENTOS.map(
+    (ev) => `
+    <article class="evento-card">
+      <div class="evento-data">
+        <span class="evento-dia">${ev.dataCurta}</span>
+        <span class="evento-numero">${ev.dataNumero}</span>
+      </div>
+      <div class="evento-info">
+        <span class="evento-tag">${ev.tag}</span>
+        <h3>${ev.titulo}</h3>
+        <p>${ev.descricao}</p>
+        ${
+          ev.destaques.length
+            ? `<ul class="evento-destaques">${ev.destaques
+                .map((d) => `<li>${d}</li>`)
+                .join("")}</ul>`
+            : ""
+        }
+      </div>
+    </article>
+  `
+  ).join("");
+}
 
 // ---------- Catálogo de produtos ----------
 // Troque "img" pelas fotos reais dos produtos quando tiver.
@@ -348,5 +411,6 @@ window.addEventListener("scroll", () => {
 });
 
 // ---------- Init ----------
+renderizarEventos();
 renderizarProdutos();
 atualizarCarrinho();
