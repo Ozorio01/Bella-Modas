@@ -2,6 +2,12 @@
    BELLA MODAS — Lógica da loja
    ========================================================= */
 
+// ---------- Dados da loja ----------
+// Edite aqui: número de WhatsApp com DDI 55 + DDD, sem espaços/traços.
+const LOJA = {
+  whatsapp: "5511999999999",
+};
+
 // ---------- Catálogo de produtos ----------
 // Troque "img" pelas fotos reais dos produtos quando tiver.
 const PRODUTOS = [
@@ -274,18 +280,43 @@ function fecharCheckout() {
 
 document.getElementById("checkoutClose").addEventListener("click", fecharCheckout);
 
+function montarMensagemWhatsApp(nome, telefone, entrega) {
+  const linhas = carrinho.map((item) => {
+    const p = PRODUTOS.find((prod) => prod.id === item.id);
+    if (!p) return "";
+    return `• ${item.qtd}x ${p.nome} — ${formatarPreco(p.preco * item.qtd)}`;
+  });
+
+  const tipoEntrega = entrega === "entrega" ? "Combinar entrega" : "Retirar na loja";
+
+  const mensagem = [
+    "Olá! Quero reservar estas peças da Bella Modas:",
+    "",
+    ...linhas,
+    "",
+    `Total: ${formatarPreco(calcularSubtotal())}`,
+    `Como prefiro receber: ${tipoEntrega}`,
+    "",
+    `Nome: ${nome}`,
+    `WhatsApp para contato: ${telefone}`,
+  ].join("\n");
+
+  return encodeURIComponent(mensagem);
+}
+
 document.getElementById("formPedido").addEventListener("submit", (e) => {
   e.preventDefault();
-  // Simulação de pedido — nenhuma cobrança real é processada aqui.
-  // Para pagamentos de verdade, este formulário precisa enviar os dados
-  // para um backend que se conecte a um gateway (Stripe, Mercado Pago, PagSeguro etc).
-  const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
-  const nome = document.getElementById("nomeCompleto").value;
 
-  const nomesPagamento = { cartao: "cartão de crédito", pix: "Pix", boleto: "boleto" };
+  const nome = document.getElementById("nomeCompleto").value;
+  const telefone = document.getElementById("telefone").value;
+  const entrega = document.querySelector('input[name="entrega"]:checked').value;
+
+  const textoWhatsApp = montarMensagemWhatsApp(nome, telefone, entrega);
+  window.open(`https://wa.me/${LOJA.whatsapp}?text=${textoWhatsApp}`, "_blank");
+
   document.getElementById(
     "confirmacaoTexto"
-  ).textContent = `Obrigado, ${nome.split(" ")[0]}! Seu pedido via ${nomesPagamento[pagamento]} foi registrado. Enviamos os detalhes para o seu e-mail.`;
+  ).textContent = `Prontinho, ${nome.split(" ")[0]}! Abrimos o WhatsApp com sua reserva. Finalize o pagamento via Pix por lá para confirmarmos suas peças.`;
 
   checkoutForm.style.display = "none";
   checkoutConfirmacao.style.display = "block";
@@ -298,13 +329,6 @@ document.getElementById("formPedido").addEventListener("submit", (e) => {
 document.getElementById("fecharConfirmacao").addEventListener("click", () => {
   fecharCheckout();
   document.getElementById("formPedido").reset();
-});
-
-// ---------- Newsletter ----------
-document.getElementById("newsletterForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  mostrarToast("Inscrição confirmada! Fique de olho no seu e-mail.");
-  e.target.reset();
 });
 
 // ---------- Toast ----------
