@@ -5,7 +5,7 @@
 // ---------- Dados da loja ----------
 // Edite aqui: número de WhatsApp com DDI 55 + DDD, sem espaços/traços.
 const LOJA = {
-  whatsapp: "5511999999999",
+  whatsapp: "+55(19)98116-5995",
 };
 
 // ---------- Catálogo de produtos ----------
