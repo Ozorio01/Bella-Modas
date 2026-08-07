@@ -3,50 +3,287 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bella Modas</title>
+    <title>Bella Modas | Seu Estilo, Sua Essência</title>
+    <meta name="description" content="Bella Modas — moda feminina e masculina com as últimas tendências. Novidades toda semana, entrega para todo o Brasil." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Novidades</a></li>
-          <li><a href="#">Roupas Femininas</a></li>
-          <li><a href="#">Roupas Masculinas</a></li>
-          <li><a href="#">Contato</a></li>
+    <!-- ===================== BARRA UTILITÁRIA ===================== -->
+    <div class="topbar">
+      <div class="container">
+        <span>Frete grátis para compras acima de R$ 250</span>
+        <div class="topbar-links">
+          <a href="#contato">Ajuda</a>
+          <a href="#contato">Minha Conta</a>
+          <a href="#contato">Trocas e Devoluções</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+      <div class="container header-main">
+        <a href="#inicio" class="logo-link">
+          <img src="logo.png" alt="Logo Bella Modas" />
+          <div class="logo-text">
+            <span class="brand">Bella Modas</span>
+            <span class="tagline">Seu estilo, sua essência</span>
+          </div>
+        </a>
+
+        <form class="search-form" id="searchForm">
+          <input type="text" id="searchInput" placeholder="Buscar produtos, categorias..." aria-label="Buscar produtos" />
+          <button type="submit" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-btn" id="btnConta" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+            Conta
+          </button>
+          <button class="icon-btn" id="btnFavoritos" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 21s-8-4.6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.4-8 11-8 11z"/></svg>
+            Favoritos
+          </button>
+          <button class="icon-btn" id="btnCart" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+            Carrinho
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-list" id="navList">
+          <li><a href="#inicio" class="active">Início</a></li>
+          <li><a href="#novidades" data-filter="novidade">Novidades</a></li>
+          <li><a href="#produtos" data-filter="feminino">Roupas Femininas</a></li>
+          <li><a href="#produtos" data-filter="masculino">Roupas Masculinas</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
     </header>
 
-    <section class="banner">
-      <h1>Bem-vindo à nossa Loja de Moda</h1>
-      <p>Confira as últimas tendências da moda!</p>
-      <button onclick="verNovidades()">Ver Novidades</button>
-    </section>
-
-    <section class="produtos">
-      <h2>Nossos Produtos</h2>
-      <div class="produto-item">
-        <img src="https://via.placeholder.com/150" alt="Produto 1" />
-        <h3>Camisa de Seda</h3>
-        <p>R$ 129,90</p>
-      </div>
-      <div class="produto-item">
-        <img src="https://via.placeholder.com/150" alt="Produto 2" />
-        <h3>Calça Jeans</h3>
-        <p>R$ 179,90</p>
-      </div>
-      <div class="produto-item">
-        <img src="https://via.placeholder.com/150" alt="Produto 3" />
-        <h3>Vestido Elegante</h3>
-        <p>R$ 229,90</p>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero-stars"></div>
+      <div class="container">
+        <div class="hero-copy">
+          <span class="eyebrow">Coleção Primavera/Verão</span>
+          <h1>Vista sua<br />própria história</h1>
+          <p>Peças selecionadas para mulheres e homens que não seguem tendência — criam. Novidades toda semana, qualidade que você sente no toque.</p>
+          <div class="hero-actions">
+            <a href="#produtos" class="btn btn-primary">Ver Coleção</a>
+            <a href="#novidades" class="btn btn-outline">Novidades da Semana</a>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <img src="logo.png" alt="Bella Modas" />
+        </div>
       </div>
     </section>
 
-    <footer>
-      <p>&copy; 2024 Loja de Moda. Todos os direitos reservados.</p>
+    <!-- ===================== BENEFÍCIOS ===================== -->
+    <section class="beneficios">
+      <div class="container">
+        <div class="beneficio">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div><strong>Frete grátis</strong>acima de R$ 250</div>
+        </div>
+        <div class="beneficio">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20"/></svg>
+          <div><strong>Pix, boleto ou cartão</strong>em até 6x sem juros</div>
+        </div>
+        <div class="beneficio">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/></svg>
+          <div><strong>Troca grátis</strong>em até 30 dias</div>
+        </div>
+        <div class="beneficio">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-8-4.6-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.4-8 11-8 11z"/></svg>
+          <div><strong>Compra segura</strong>ambiente 100% protegido</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORIAS ===================== -->
+    <section class="categorias container">
+      <span class="eyebrow">Explore</span>
+      <h2 class="section-title">Compre por categoria</h2>
+      <div class="categoria-grid">
+        <div class="categoria-card" data-filter="feminino">
+          <img src="https://placehold.co/500x625/e5147d/fbf1ef?text=Feminino" alt="Categoria Roupas Femininas" />
+          <div class="categoria-overlay"><span>Feminino</span></div>
+        </div>
+        <div class="categoria-card" data-filter="masculino">
+          <img src="https://placehold.co/500x625/5c1a3a/fbf1ef?text=Masculino" alt="Categoria Roupas Masculinas" />
+          <div class="categoria-overlay"><span>Masculino</span></div>
+        </div>
+        <div class="categoria-card" data-filter="novidade">
+          <img src="https://placehold.co/500x625/c9a24b/2b1b24?text=Novidades" alt="Categoria Novidades" />
+          <div class="categoria-overlay"><span>Novidades</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRODUTOS ===================== -->
+    <section class="produtos container" id="produtos">
+      <span class="eyebrow" id="novidades">Catálogo</span>
+      <h2 class="section-title">Nossos Produtos</h2>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-filter="todos">Todas</button>
+        <button class="tab-btn" data-filter="feminino">Femininas</button>
+        <button class="tab-btn" data-filter="masculino">Masculinas</button>
+        <button class="tab-btn" data-filter="novidade">Novidades</button>
+      </div>
+
+      <div class="produto-grid" id="produtoGrid"></div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="newsletter">
+      <div class="container">
+        <span class="eyebrow">Fique por dentro</span>
+        <h2 class="section-title">Receba novidades em primeira mão</h2>
+        <form id="newsletterForm">
+          <input type="email" required placeholder="Seu melhor e-mail" aria-label="E-mail para newsletter" />
+          <button type="submit" class="btn btn-primary">Quero receber</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer" id="contato">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Bella Modas" />
+            <span>Bella Modas</span>
+          </div>
+          <p>Moda feminina e masculina com identidade. Peças pensadas para durar no seu guarda-roupa e na sua história.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <a href="#">Sobre nós</a>
+          <a href="#">Trabalhe conosco</a>
+          <a href="#">Política de privacidade</a>
+          <a href="#">Trocas e devoluções</a>
+        </div>
+        <div class="footer-col">
+          <h4>Categorias</h4>
+          <a href="#produtos" data-filter="feminino">Roupas Femininas</a>
+          <a href="#produtos" data-filter="masculino">Roupas Masculinas</a>
+          <a href="#produtos" data-filter="novidade">Novidades</a>
+        </div>
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <p>contato@bellamodas.com.br</p>
+          <p>(11) 4000-0000</p>
+          <p>Seg a Sex, 9h às 18h</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Bella Modas. Todos os direitos reservados.
+      </div>
     </footer>
+
+    <!-- ===================== CARRINHO ===================== -->
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho de compras">
+      <div class="cart-header">
+        <h3>Seu Carrinho</h3>
+        <button class="cart-close" id="cartClose" aria-label="Fechar carrinho">&times;</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">R$ 0,00</span>
+        </div>
+        <button class="btn btn-primary" id="btnCheckout">Finalizar Compra</button>
+      </div>
+    </aside>
+
+    <!-- ===================== MODAL CHECKOUT ===================== -->
+    <div class="modal" id="checkoutModal">
+      <div class="modal-box">
+        <button class="modal-close" id="checkoutClose" aria-label="Fechar">&times;</button>
+
+        <div id="checkoutForm">
+          <h3>Finalizar Compra</h3>
+          <p class="aviso">Ambiente de demonstração — nenhuma cobrança real será feita. Para pagamentos reais, integre um gateway como Stripe, Mercado Pago ou PagSeguro no backend.</p>
+
+          <form id="formPedido">
+            <div class="form-group">
+              <label for="nomeCompleto">Nome completo</label>
+              <input type="text" id="nomeCompleto" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="endereco">Endereço de entrega</label>
+              <input type="text" id="endereco" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" required />
+              </div>
+              <div class="form-group">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" required />
+              </div>
+            </div>
+
+            <label style="display:block; margin-bottom:0.5rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--vinho);">Forma de pagamento</label>
+            <div class="pagamento-opcoes">
+              <label>
+                <input type="radio" name="pagamento" value="cartao" checked />
+                <span>Cartão</span>
+              </label>
+              <label>
+                <input type="radio" name="pagamento" value="pix" />
+                <span>Pix</span>
+              </label>
+              <label>
+                <input type="radio" name="pagamento" value="boleto" />
+                <span>Boleto</span>
+              </label>
+            </div>
+
+            <div class="cart-subtotal">
+              <span>Total do pedido</span>
+              <span id="checkoutTotal">R$ 0,00</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">Confirmar Pedido</button>
+          </form>
+        </div>
+
+        <div id="checkoutConfirmacao" class="confirmacao" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <h3>Pedido confirmado!</h3>
+          <p id="confirmacaoTexto">Obrigado pela compra. Enviamos os detalhes para o seu e-mail.</p>
+          <button class="btn btn-primary" id="fecharConfirmacao">Continuar comprando</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
 
     <script src="script.js"></script>
   </body>
