@@ -444,6 +444,60 @@ nav.main-nav {
 }
 
 /* =========================================================
+   COMO FUNCIONA
+   ========================================================= */
+.como-funciona {
+  padding: 4.5rem 0 1rem;
+  text-align: center;
+}
+
+.passos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.passo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.passo-numero {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rosa-escuro), var(--rosa));
+  border: 3px dashed rgba(255, 255, 255, 0.6);
+  color: var(--branco);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.passo h3 {
+  font-size: 1.1rem;
+  color: var(--vinho);
+  margin-bottom: 0.4rem;
+}
+
+.passo p {
+  font-size: 0.88rem;
+  color: #5c5058;
+  max-width: 260px;
+}
+
+@media (max-width: 760px) {
+  .passos-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+}
+
+/* =========================================================
    CATEGORIAS
    ========================================================= */
 .categorias {
@@ -1044,6 +1098,67 @@ nav.main-nav {
   border-radius: var(--radius);
   min-width: 280px;
   font-family: var(--sans);
+}
+
+/* =========================================================
+   VISITE A LOJA
+   ========================================================= */
+.visite-loja {
+  background: var(--creme-forte);
+  padding: 4rem 0;
+}
+
+.visite-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.visite-endereco {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 1rem;
+  color: var(--carvao);
+  margin: 1rem 0 0.8rem;
+  line-height: 1.5;
+}
+
+.visite-endereco svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--rosa-escuro);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.visite-horario {
+  font-size: 0.9rem;
+  color: #5c5058;
+  margin-bottom: 1.6rem;
+}
+
+.visite-mapa {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 3px dashed rgba(92, 26, 58, 0.25);
+  padding: 6px;
+  background: var(--branco);
+}
+
+.visite-mapa iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 2px;
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .visite-grid { grid-template-columns: 1fr; text-align: left; }
+  .visite-mapa iframe { height: 240px; }
 }
 
 /* =========================================================
