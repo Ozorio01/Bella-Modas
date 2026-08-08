@@ -536,7 +536,8 @@ nav.main-nav {
 
 .produto-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+  justify-content: center;
   gap: 1.8rem;
   text-align: left;
 }
@@ -568,10 +569,111 @@ nav.main-nav {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  cursor: zoom-in;
 }
 
 .produto-card:hover .produto-thumb img {
   transform: scale(1.06);
+}
+
+/* =========================================================
+   LIGHTBOX (foto em tela grande)
+   ========================================================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 450;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(43, 27, 36, 0.92);
+  padding: 2.5rem 1.5rem;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: min(720px, 90vw);
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  border: 3px dashed rgba(255, 255, 255, 0.4);
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--branco);
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--branco);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+
+.lightbox-dots {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.lightbox-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all var(--transition);
+}
+
+.lightbox-dot.active {
+  background: var(--dourado);
+  transform: scale(1.3);
+}
+
+@media (max-width: 600px) {
+  .lightbox-nav { width: 38px; height: 38px; font-size: 1.2rem; }
+  .lightbox-close { width: 36px; height: 36px; font-size: 1.3rem; top: 10px; right: 12px; }
 }
 
 .produto-tag {
@@ -1316,7 +1418,6 @@ footer.site-footer {
    RESPONSIVO
    ========================================================= */
 @media (max-width: 980px) {
-  .produto-grid { grid-template-columns: repeat(3, 1fr); }
   .categoria-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .beneficios .container { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1338,7 +1439,7 @@ footer.site-footer {
   .hero-actions { justify-content: center; }
   .hero-badge img { width: 240px; }
   .categoria-grid { grid-template-columns: 1fr; }
-  .produto-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .produto-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
   .footer-grid { grid-template-columns: 1fr; text-align: center; }
   .footer-logo { justify-content: center; }
   .form-row { flex-direction: column; gap: 0; }
