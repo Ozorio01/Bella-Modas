@@ -486,12 +486,24 @@ function abrirCheckout() {
   checkoutConfirmacao.style.display = "none";
   checkoutModal.classList.add("show");
   overlay.classList.add("show");
+  atualizarAvisoEndereco();
 }
 
 function fecharCheckout() {
   checkoutModal.classList.remove("show");
   overlay.classList.remove("show");
 }
+
+function atualizarAvisoEndereco() {
+  const aviso = document.getElementById("avisoEndereco");
+  const selecionado = document.querySelector('input[name="entrega"]:checked');
+  if (!aviso || !selecionado) return;
+  aviso.style.display = selecionado.value === "retirada" ? "block" : "none";
+}
+
+document.querySelectorAll('input[name="entrega"]').forEach((radio) => {
+  radio.addEventListener("change", atualizarAvisoEndereco);
+});
 
 document.getElementById("checkoutClose").addEventListener("click", fecharCheckout);
 
@@ -504,7 +516,10 @@ function montarMensagemWhatsApp(nome, telefone, entrega) {
     return `• ${item.qtd}x ${p.nome} — Tam. ${item.tamanho} (${valorUnitario} cada) — ${valorLinha}`;
   });
 
-  const tipoEntrega = entrega === "entrega" ? "Combinar entrega" : "Retirar na loja";
+  const tipoEntrega =
+    entrega === "entrega"
+      ? "Combinar entrega"
+      : "Retirar na loja (Av. Eng. Márcio Duarte Ribeiro, 150 — Jardim do Lago Continuação, Campinas/SP)";
 
   const mensagem = [
     "Olá, Bella Modas! 💗",
