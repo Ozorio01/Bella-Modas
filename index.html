@@ -110,6 +110,29 @@
       </div>
     </section>
 
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section class="como-funciona container">
+      <span class="eyebrow">Passo a passo</span>
+      <h2 class="section-title">Como funciona</h2>
+      <div class="passos-grid">
+        <div class="passo">
+          <span class="passo-numero">1</span>
+          <h3>Escolha suas peças</h3>
+          <p>Navegue pelo catálogo, veja as fotos de perto e escolha o tamanho de cada peça.</p>
+        </div>
+        <div class="passo">
+          <span class="passo-numero">2</span>
+          <h3>Reserve pelo WhatsApp</h3>
+          <p>Clique em "Reservar Peças" e confirme seu nome e telefone — sua conversa já abre pronta com o pedido.</p>
+        </div>
+        <div class="passo">
+          <span class="passo-numero">3</span>
+          <h3>Combine e pague via Pix</h3>
+          <p>Combinamos a entrega ou retirada na loja, e você finaliza o pagamento direto com a gente.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CATEGORIAS ===================== -->
     <section class="categorias container">
       <span class="eyebrow">Explore</span>
@@ -170,8 +193,43 @@
       <div class="produto-grid" id="produtoGrid"></div>
     </section>
 
+    <!-- ===================== VISITE A LOJA ===================== -->
+    <section class="visite-loja" id="contato">
+      <div class="container visite-grid">
+        <div class="visite-info">
+          <span class="eyebrow">Loja física</span>
+          <h2 class="section-title">Venha nos visitar</h2>
+          <p class="visite-endereco">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Av. Eng. Márcio Duarte Ribeiro, 150<br />
+            Jardim do Lago Continuação — Campinas, SP<br />
+            CEP 13051-058
+          </p>
+          <p class="visite-horario">
+            <strong>Horário:</strong> Terça a Sexta, 9h às 18h · Sábado, 9h às 16h
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Av.%20Eng.%20M%C3%A1rcio%20Duarte%20Ribeiro%2C%20150%20-%20Jardim%20do%20Lago%20Continua%C3%A7%C3%A3o%20-%20Campinas%20-%20SP%2C%2013051-058"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Como chegar
+          </a>
+        </div>
+        <div class="visite-mapa">
+          <iframe
+            title="Mapa até a Bella Modas"
+            src="https://www.google.com/maps?q=Av.%20Eng.%20M%C3%A1rcio%20Duarte%20Ribeiro%2C%20150%20-%20Jardim%20do%20Lago%20Continua%C3%A7%C3%A3o%20-%20Campinas%20-%20SP%2C%2013051-058&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== FOOTER ===================== -->
-    <footer class="site-footer" id="contato">
+    <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-col">
           <div class="footer-logo">
@@ -192,6 +250,11 @@
           <a href="https://wa.me/5519981165995" target="_blank" rel="noopener">WhatsApp: (19) 98116-5995</a>
           <a href="https://www.instagram.com/_bellaamodass/" target="_blank" rel="noopener">Instagram: @_bellaamodass</a>
           <p>Atendido por: Roseli Rodrigues de Oliveira</p>
+          <p style="margin-top:0.6rem;">
+            <strong style="color:var(--dourado);">Endereço:</strong><br />
+            Av. Eng. Márcio Duarte Ribeiro, 150<br />
+            Jardim do Lago Continuação — Campinas, SP
+          </p>
           <p style="margin-top:0.6rem;"><strong style="color:var(--dourado);">Horário:</strong><br />Terça a Sexta, 9h às 18h<br />Sábado, 9h às 16h</p>
         </div>
       </div>
@@ -255,6 +318,9 @@
                 <span>Combinar entrega</span>
               </label>
             </div>
+            <p class="aviso" id="avisoEndereco" style="margin-top:-0.6rem;">
+              📍 Av. Eng. Márcio Duarte Ribeiro, 150 — Jardim do Lago Continuação, Campinas/SP
+            </p>
 
             <div class="cart-subtotal">
               <span>Total da reserva</span>
