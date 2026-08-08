@@ -656,6 +656,50 @@ nav.main-nav {
 }
 
 /* =========================================================
+   MARCAS QUE TRABALHAMOS
+   ========================================================= */
+.marcas {
+  background: var(--creme-forte);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.marcas-script {
+  display: block;
+  font-family: "Dancing Script", var(--serif);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  color: var(--rosa-escuro);
+  line-height: 1;
+}
+
+.marcas-sub {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vinho);
+  margin-top: 0.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.marcas-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.marcas-lista li {
+  background: var(--branco);
+  border: 1.5px dashed rgba(92, 26, 58, 0.3);
+  color: var(--vinho);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
+}
+
+/* =========================================================
    EVENTOS NA LOJA
    ========================================================= */
 .eventos {
