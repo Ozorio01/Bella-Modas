@@ -28,6 +28,14 @@ const EVENTOS = [
     descricao: "Venda especial de semijoias com Veridiana Quirino, direto na loja.",
     destaques: [],
   },
+  {
+    dataCurta: "Toda",
+    dataNumero: "estação",
+    tag: "Promoção",
+    titulo: "Outono & Inverno em promoção",
+    descricao: "Toda a coleção da estação com desconto no débito, crédito ou Pix.",
+    destaques: ["10% off", "20% off", "30% off"],
+  },
 ];
 
 function renderizarEventos() {
