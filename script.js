@@ -72,30 +72,37 @@ function renderizarEventos() {
 }
 
 // ---------- Catálogo de produtos ----------
-// Troque "img" pelas fotos reais dos produtos quando tiver.
+// Só produtos com fotos reais da loja. Pra adicionar um novo, copie o
+// modelo abaixo e liste 1 ou mais fotos em "imagens" — com mais de uma
+// foto, o card ganha setinhas de navegação automaticamente.
 // "tamanhos": tabela padrão usada por lojas de roupa (PP a XG).
 // "tamanhosPlus": use nas peças plus size (G1 a G4) no lugar de "tamanhos".
-// "imagens": pode ter 1 ou várias fotos — com mais de uma, o card ganha setinhas de navegação.
 const TAMANHOS_PADRAO = ["PP", "P", "M", "G", "GG", "XG"];
 const TAMANHOS_PLUS = ["G1", "G2", "G3", "G4"];
 
 const PRODUTOS = [
-  { id: 1, nome: "Camisa de Seda Rosé", categoria: "feminino", tags: ["novidade"], preco: 129.9, precoAntigo: null, cor: "e5147d", tamanhos: TAMANHOS_PADRAO },
-  { id: 2, nome: "Vestido Midi Elegante", categoria: "feminino", tags: ["novidade"], preco: 229.9, precoAntigo: 279.9, cor: "b80f63", tamanhos: TAMANHOS_PADRAO },
-  { id: 3, nome: "Calça Alfaiataria Feminina", categoria: "feminino", tags: [], preco: 179.9, precoAntigo: null, cor: "c9a24b", tamanhos: TAMANHOS_PADRAO },
-  { id: 4, nome: "Blazer Estruturado", categoria: "feminino", tags: [], preco: 249.9, precoAntigo: 299.9, cor: "5c1a3a", tamanhos: TAMANHOS_PADRAO },
-  { id: 5, nome: "Saia Plissada", categoria: "feminino", tags: ["novidade"], preco: 149.9, precoAntigo: null, cor: "f2a6c6", tamanhos: TAMANHOS_PADRAO },
-  { id: 6, nome: "Blusa Cropped Tricot", categoria: "feminino", tags: [], preco: 99.9, precoAntigo: null, cor: "e5147d", tamanhos: TAMANHOS_PADRAO },
-  { id: 7, nome: "Camisa Social Slim", categoria: "masculino", tags: ["novidade"], preco: 139.9, precoAntigo: null, cor: "2b1b24", tamanhos: TAMANHOS_PADRAO },
-  { id: 8, nome: "Calça Jeans Masculina", categoria: "masculino", tags: [], preco: 179.9, precoAntigo: 209.9, cor: "5c1a3a", tamanhos: TAMANHOS_PADRAO },
-  { id: 9, nome: "Jaqueta Bomber", categoria: "masculino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "2b1b24", tamanhos: TAMANHOS_PADRAO },
-  { id: 10, nome: "Polo Piquet Masculina", categoria: "masculino", tags: [], preco: 109.9, precoAntigo: null, cor: "c9a24b", tamanhos: TAMANHOS_PADRAO },
-  { id: 11, nome: "Bermuda Sarja", categoria: "masculino", tags: [], preco: 119.9, precoAntigo: null, cor: "5c1a3a", tamanhos: TAMANHOS_PADRAO },
-  { id: 12, nome: "Suéter Gola Alta", categoria: "masculino", tags: ["novidade"], preco: 159.9, precoAntigo: 189.9, cor: "2b1b24", tamanhos: TAMANHOS_PADRAO },
-  // Produtos com fotos reais enviadas pela loja — ajuste nome/preço/tamanhos como quiser.
-  { id: 13, nome: "Conjunto Moletom Rosé", categoria: "feminino", tags: ["novidade"], preco: 219.9, precoAntigo: null, cor: "f2a6c6", tamanhos: TAMANHOS_PADRAO, imagens: ["produtos/conjunto-moletom-rose.jpg"] },
-  { id: 14, nome: "Colete + Calça Pantalona Rosé", categoria: "feminino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "f2a6c6", tamanhos: TAMANHOS_PADRAO, imagens: ["produtos/colete-calca-rosa.jpg"] },
-  { id: 15, nome: "Macacão Alfaiataria Bege", categoria: "feminino", tags: ["novidade"], preco: 249.9, precoAntigo: 289.9, cor: "c9a24b", tamanhos: TAMANHOS_PLUS, imagens: ["produtos/macacao-bege-1.jpg", "produtos/macacao-bege-2.jpg", "produtos/macacao-bege-3.jpg"] },
+  {
+    id: 1,
+    nome: "Conjunto Moletom Rosé",
+    categoria: "feminino",
+    tags: ["novidade"],
+    preco: 219.9,
+    precoAntigo: null,
+    cor: "f2a6c6",
+    tamanhos: TAMANHOS_PADRAO,
+    imagens: ["produtos/conjunto-moletom-rose.jpg", "produtos/colete-calca-rosa.jpg"],
+  },
+  {
+    id: 2,
+    nome: "Macacão Alfaiataria Bege",
+    categoria: "feminino",
+    tags: ["novidade"],
+    preco: 249.9,
+    precoAntigo: 289.9,
+    cor: "c9a24b",
+    tamanhos: TAMANHOS_PLUS,
+    imagens: ["produtos/macacao-bege-1.jpg", "produtos/macacao-bege-2.jpg", "produtos/macacao-bege-3.jpg"],
+  },
 ];
 
 function imagensProduto(p) {
