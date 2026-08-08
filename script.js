@@ -28,6 +28,14 @@ const EVENTOS = [
     descricao: "Venda especial de semijoias com Veridiana Quirino, direto na loja.",
     destaques: [],
   },
+  {
+    dataCurta: "Toda",
+    dataNumero: "estação",
+    tag: "Promoção",
+    titulo: "Outono & Inverno em promoção",
+    descricao: "Toda a coleção da estação com desconto no débito, crédito ou Pix.",
+    destaques: ["10% off", "20% off", "30% off"],
+  },
 ];
 
 function renderizarEventos() {
@@ -78,9 +86,14 @@ const PRODUTOS = [
   { id: 10, nome: "Polo Piquet Masculina", categoria: "masculino", tags: [], preco: 109.9, precoAntigo: null, cor: "c9a24b" },
   { id: 11, nome: "Bermuda Sarja", categoria: "masculino", tags: [], preco: 119.9, precoAntigo: null, cor: "5c1a3a" },
   { id: 12, nome: "Suéter Gola Alta", categoria: "masculino", tags: ["novidade"], preco: 159.9, precoAntigo: 189.9, cor: "2b1b24" },
+  // Produtos com fotos reais enviadas pela loja — ajuste nome/preço/tamanhos como quiser.
+  { id: 13, nome: "Conjunto Moletom Rosé", categoria: "feminino", tags: ["novidade"], preco: 219.9, precoAntigo: null, cor: "f2a6c6", imagem: "produtos/conjunto-moletom-rose.jpg" },
+  { id: 14, nome: "Colete + Calça Pantalona Rosé", categoria: "feminino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "f2a6c6", imagem: "produtos/colete-calca-rosa.jpg" },
+  { id: 15, nome: "Macacão Alfaiataria Bege", categoria: "feminino", tags: ["novidade"], preco: 249.9, precoAntigo: 289.9, cor: "c9a24b", imagem: "produtos/macacao-bege-1.jpg" },
 ];
 
 function imagemProduto(p) {
+  if (p.imagem) return p.imagem;
   const nomeUrl = encodeURIComponent(p.nome);
   return `https://placehold.co/450x600/${p.cor}/fbf1ef?text=${nomeUrl}`;
 }
