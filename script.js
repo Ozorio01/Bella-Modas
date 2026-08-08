@@ -209,12 +209,68 @@ function trocarImagem(id, novoIndice) {
   imagemAtual[id] = indice;
 
   const thumb = document.querySelector(`[data-thumb="${id}"]`);
-  if (!thumb) return;
-  thumb.querySelector(`[data-img="${id}"]`).src = imgs[indice];
-  thumb.querySelectorAll(`[data-dots="${id}"] .img-dot`).forEach((dot, i) => {
-    dot.classList.toggle("active", i === indice);
-  });
+  if (thumb) {
+    thumb.querySelector(`[data-img="${id}"]`).src = imgs[indice];
+    thumb.querySelectorAll(`[data-dots="${id}"] .img-dot`).forEach((dot, i) => {
+      dot.classList.toggle("active", i === indice);
+    });
+  }
+
+  if (lightboxProdutoId === id) atualizarLightbox();
 }
+
+// ---------- Lightbox (foto em tela grande) ----------
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxDots = document.getElementById("lightboxDots");
+let lightboxProdutoId = null;
+
+function abrirLightbox(id) {
+  lightboxProdutoId = id;
+  atualizarLightbox();
+  lightbox.classList.add("show");
+  overlay.classList.add("show");
+}
+
+function fecharLightbox() {
+  lightbox.classList.remove("show");
+  overlay.classList.remove("show");
+  lightboxProdutoId = null;
+}
+
+function atualizarLightbox() {
+  const p = PRODUTOS.find((prod) => prod.id === lightboxProdutoId);
+  if (!p) return;
+  const imgs = imagensProduto(p);
+  const indice = imagemAtual[lightboxProdutoId] || 0;
+
+  lightboxImg.src = imgs[indice];
+  lightboxImg.alt = p.nome;
+
+  const temVarias = imgs.length > 1;
+  document.getElementById("lightboxPrev").style.display = temVarias ? "flex" : "none";
+  document.getElementById("lightboxNext").style.display = temVarias ? "flex" : "none";
+  lightboxDots.innerHTML = temVarias
+    ? imgs.map((_, i) => `<span class="lightbox-dot${i === indice ? " active" : ""}"></span>`).join("")
+    : "";
+}
+
+document.getElementById("lightboxClose").addEventListener("click", fecharLightbox);
+document.getElementById("lightboxPrev").addEventListener("click", () => {
+  trocarImagem(lightboxProdutoId, (imagemAtual[lightboxProdutoId] || 0) - 1);
+});
+document.getElementById("lightboxNext").addEventListener("click", () => {
+  trocarImagem(lightboxProdutoId, (imagemAtual[lightboxProdutoId] || 0) + 1);
+});
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) fecharLightbox();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") fecharLightbox();
+  if (lightboxProdutoId === null) return;
+  if (e.key === "ArrowLeft") trocarImagem(lightboxProdutoId, (imagemAtual[lightboxProdutoId] || 0) - 1);
+  if (e.key === "ArrowRight") trocarImagem(lightboxProdutoId, (imagemAtual[lightboxProdutoId] || 0) + 1);
+});
 
 grid.addEventListener("click", (e) => {
   const imgPrev = e.target.closest("[data-img-prev]");
@@ -227,6 +283,12 @@ grid.addEventListener("click", (e) => {
   if (imgNext) {
     const id = Number(imgNext.dataset.imgNext);
     trocarImagem(id, (imagemAtual[id] || 0) + 1);
+    return;
+  }
+
+  const fotoClicada = e.target.closest("[data-img]");
+  if (fotoClicada) {
+    abrirLightbox(Number(fotoClicada.dataset.img));
     return;
   }
 
@@ -320,6 +382,7 @@ document.getElementById("cartClose").addEventListener("click", fecharCarrinho);
 overlay.addEventListener("click", () => {
   fecharCarrinho();
   fecharCheckout();
+  fecharLightbox();
 });
 
 function adicionarAoCarrinho(id, tamanho) {
