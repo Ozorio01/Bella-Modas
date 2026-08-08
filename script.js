@@ -11,57 +11,57 @@ const LOJA = {
 // ---------- Eventos na loja ----------
 // Edite, adicione ou remova eventos aqui. Deixe a lista vazia ([]) quando
 // não houver nenhum evento programado — a seção mostra um aviso automático.
-const EVENTOS = [
-  {
-    dataCurta: "SÁB",
-    dataNumero: "8/8",
-    tag: "Evento especial",
-    titulo: "Visita da Jéssica — Furo Humanizado",
-    descricao: "Aplicação de piercing e brincos com todo cuidado e segurança.",
-    destaques: [],
-  },
-  {
-    dataCurta: "SÁB",
-    dataNumero: "8/8",
-    tag: "Parceria",
-    titulo: "Josi Boutique — Semijoias",
-    descricao: "Venda especial de semijoias com Veridiana Quirino, direto na loja.",
-    destaques: [],
-  },
-];
+//const EVENTOS = [
+  //{
+    //dataCurta: "SÁB",
+    //dataNumero: "8/8",
+    //tag: "Evento especial",
+    //titulo: "Visita da Jéssica — Furo Humanizado",
+    //descricao: "Aplicação de piercing e brincos com todo cuidado e segurança.",
+    //destaques: [],
+  //},
+  //{
+    //dataCurta: "SÁB",
+    //dataNumero: "8/8",
+    //tag: "Parceria",
+    //titulo: "Josi Boutique — Semijoias",
+    //descricao: "Venda especial de semijoias com Veridiana Quirino, direto na loja.",
+    //destaques: [],
+  //},
+//];
 
-function renderizarEventos() {
-  const grid = document.getElementById("eventoGrid");
-  if (!grid) return;
+//function renderizarEventos() {
+  //const grid = document.getElementById("eventoGrid");
+  //if (!grid) return;
 
-  if (EVENTOS.length === 0) {
-    grid.innerHTML = `<p class="eventos-vazio">Nenhum evento programado no momento. Fique de olho no nosso Instagram para as próximas novidades!</p>`;
-    return;
-  }
+  //if (EVENTOS.length === 0) {
+    //grid.innerHTML = `<p class="eventos-vazio">Nenhum evento programado no momento. Fique de olho no nosso Instagram para as próximas novidades!</p>`;
+    //return;
+  //}
 
-  grid.innerHTML = EVENTOS.map(
-    (ev) => `
-    <article class="evento-card">
-      <div class="evento-data">
-        <span class="evento-dia">${ev.dataCurta}</span>
-        <span class="evento-numero">${ev.dataNumero}</span>
-      </div>
-      <div class="evento-info">
-        <span class="evento-tag">${ev.tag}</span>
-        <h3>${ev.titulo}</h3>
-        <p>${ev.descricao}</p>
-        ${
-          ev.destaques.length
-            ? `<ul class="evento-destaques">${ev.destaques
-                .map((d) => `<li>${d}</li>`)
-                .join("")}</ul>`
-            : ""
-        }
-      </div>
-    </article>
-  `
-  ).join("");
-}
+  //grid.innerHTML = EVENTOS.map(
+    //(ev) => `
+    //<article class="evento-card">
+      //<div class="evento-data">
+        //<span class="evento-dia">${ev.dataCurta}</span>
+        //<span class="evento-numero">${ev.dataNumero}</span>
+      //</div>
+      //<div class="evento-info">
+        //<span class="evento-tag">${ev.tag}</span>
+        //<h3>${ev.titulo}</h3>
+        //<p>${ev.descricao}</p>
+        //${
+          //ev.destaques.length
+           // ? `<ul class="evento-destaques">${ev.destaques
+         //       .map((d) => `<li>${d}</li>`)
+       //         .join("")}</ul>`
+     //       : ""
+    //    }
+      //</div>
+    //</article>
+  //`
+//  ).join("");
+//}
 
 // ---------- Catálogo de produtos ----------
 // Só produtos com fotos reais da loja. Pra adicionar um novo, copie o
