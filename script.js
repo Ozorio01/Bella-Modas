@@ -70,6 +70,7 @@ function renderizarEventos() {
 // "tamanhos": tabela padrão usada por lojas de roupa (PP a XG).
 // "tamanhosPlus": use nas peças plus size (G1 a G4) no lugar de "tamanhos".
 const TAMANHOS_PADRAO = ["PP", "P", "M", "G", "GG", "XG"];
+const TAMANHOS_PADRAO_MASCULINOS = ["P", "M", "G", "GG", "XG", "XGG"]
 const TAMANHOS_PLUS = ["G1", "G2", "G3", "G4"];
 
 const PRODUTOS = [
@@ -101,7 +102,7 @@ const PRODUTOS = [
     tags: ["novidade"],
     preco: 299.9,
     cor: "c9a24b",
-    tamanhos: TAMANHOS_PLUS,
+    tamanhos: TAMANHOS_PADRAO_MASCULINOS,
     imagens: ["produtos/categoria-masculino.jpg"],
   },
 {
