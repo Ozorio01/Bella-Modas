@@ -73,29 +73,35 @@ function renderizarEventos() {
 
 // ---------- Catálogo de produtos ----------
 // Troque "img" pelas fotos reais dos produtos quando tiver.
+// "tamanhos": tabela padrão usada por lojas de roupa (PP a XG).
+// "tamanhosPlus": use nas peças plus size (G1 a G4) no lugar de "tamanhos".
+// "imagens": pode ter 1 ou várias fotos — com mais de uma, o card ganha setinhas de navegação.
+const TAMANHOS_PADRAO = ["PP", "P", "M", "G", "GG", "XG"];
+const TAMANHOS_PLUS = ["G1", "G2", "G3", "G4"];
+
 const PRODUTOS = [
-  { id: 1, nome: "Camisa de Seda Rosé", categoria: "feminino", tags: ["novidade"], preco: 129.9, precoAntigo: null, cor: "e5147d" },
-  { id: 2, nome: "Vestido Midi Elegante", categoria: "feminino", tags: ["novidade"], preco: 229.9, precoAntigo: 279.9, cor: "b80f63" },
-  { id: 3, nome: "Calça Alfaiataria Feminina", categoria: "feminino", tags: [], preco: 179.9, precoAntigo: null, cor: "c9a24b" },
-  { id: 4, nome: "Blazer Estruturado", categoria: "feminino", tags: [], preco: 249.9, precoAntigo: 299.9, cor: "5c1a3a" },
-  { id: 5, nome: "Saia Plissada", categoria: "feminino", tags: ["novidade"], preco: 149.9, precoAntigo: null, cor: "f2a6c6" },
-  { id: 6, nome: "Blusa Cropped Tricot", categoria: "feminino", tags: [], preco: 99.9, precoAntigo: null, cor: "e5147d" },
-  { id: 7, nome: "Camisa Social Slim", categoria: "masculino", tags: ["novidade"], preco: 139.9, precoAntigo: null, cor: "2b1b24" },
-  { id: 8, nome: "Calça Jeans Masculina", categoria: "masculino", tags: [], preco: 179.9, precoAntigo: 209.9, cor: "5c1a3a" },
-  { id: 9, nome: "Jaqueta Bomber", categoria: "masculino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "2b1b24" },
-  { id: 10, nome: "Polo Piquet Masculina", categoria: "masculino", tags: [], preco: 109.9, precoAntigo: null, cor: "c9a24b" },
-  { id: 11, nome: "Bermuda Sarja", categoria: "masculino", tags: [], preco: 119.9, precoAntigo: null, cor: "5c1a3a" },
-  { id: 12, nome: "Suéter Gola Alta", categoria: "masculino", tags: ["novidade"], preco: 159.9, precoAntigo: 189.9, cor: "2b1b24" },
+  { id: 1, nome: "Camisa de Seda Rosé", categoria: "feminino", tags: ["novidade"], preco: 129.9, precoAntigo: null, cor: "e5147d", tamanhos: TAMANHOS_PADRAO },
+  { id: 2, nome: "Vestido Midi Elegante", categoria: "feminino", tags: ["novidade"], preco: 229.9, precoAntigo: 279.9, cor: "b80f63", tamanhos: TAMANHOS_PADRAO },
+  { id: 3, nome: "Calça Alfaiataria Feminina", categoria: "feminino", tags: [], preco: 179.9, precoAntigo: null, cor: "c9a24b", tamanhos: TAMANHOS_PADRAO },
+  { id: 4, nome: "Blazer Estruturado", categoria: "feminino", tags: [], preco: 249.9, precoAntigo: 299.9, cor: "5c1a3a", tamanhos: TAMANHOS_PADRAO },
+  { id: 5, nome: "Saia Plissada", categoria: "feminino", tags: ["novidade"], preco: 149.9, precoAntigo: null, cor: "f2a6c6", tamanhos: TAMANHOS_PADRAO },
+  { id: 6, nome: "Blusa Cropped Tricot", categoria: "feminino", tags: [], preco: 99.9, precoAntigo: null, cor: "e5147d", tamanhos: TAMANHOS_PADRAO },
+  { id: 7, nome: "Camisa Social Slim", categoria: "masculino", tags: ["novidade"], preco: 139.9, precoAntigo: null, cor: "2b1b24", tamanhos: TAMANHOS_PADRAO },
+  { id: 8, nome: "Calça Jeans Masculina", categoria: "masculino", tags: [], preco: 179.9, precoAntigo: 209.9, cor: "5c1a3a", tamanhos: TAMANHOS_PADRAO },
+  { id: 9, nome: "Jaqueta Bomber", categoria: "masculino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "2b1b24", tamanhos: TAMANHOS_PADRAO },
+  { id: 10, nome: "Polo Piquet Masculina", categoria: "masculino", tags: [], preco: 109.9, precoAntigo: null, cor: "c9a24b", tamanhos: TAMANHOS_PADRAO },
+  { id: 11, nome: "Bermuda Sarja", categoria: "masculino", tags: [], preco: 119.9, precoAntigo: null, cor: "5c1a3a", tamanhos: TAMANHOS_PADRAO },
+  { id: 12, nome: "Suéter Gola Alta", categoria: "masculino", tags: ["novidade"], preco: 159.9, precoAntigo: 189.9, cor: "2b1b24", tamanhos: TAMANHOS_PADRAO },
   // Produtos com fotos reais enviadas pela loja — ajuste nome/preço/tamanhos como quiser.
-  { id: 13, nome: "Conjunto Moletom Rosé", categoria: "feminino", tags: ["novidade"], preco: 219.9, precoAntigo: null, cor: "f2a6c6", imagem: "produtos/conjunto-moletom-rose.jpg" },
-  { id: 14, nome: "Colete + Calça Pantalona Rosé", categoria: "feminino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "f2a6c6", imagem: "produtos/colete-calca-rosa.jpg" },
-  { id: 15, nome: "Macacão Alfaiataria Bege", categoria: "feminino", tags: ["novidade"], preco: 249.9, precoAntigo: 289.9, cor: "c9a24b", imagem: "produtos/macacao-bege-1.jpg" },
+  { id: 13, nome: "Conjunto Moletom Rosé", categoria: "feminino", tags: ["novidade"], preco: 219.9, precoAntigo: null, cor: "f2a6c6", tamanhos: TAMANHOS_PADRAO, imagens: ["produtos/conjunto-moletom-rose.jpg"] },
+  { id: 14, nome: "Colete + Calça Pantalona Rosé", categoria: "feminino", tags: ["novidade"], preco: 259.9, precoAntigo: null, cor: "f2a6c6", tamanhos: TAMANHOS_PADRAO, imagens: ["produtos/colete-calca-rosa.jpg"] },
+  { id: 15, nome: "Macacão Alfaiataria Bege", categoria: "feminino", tags: ["novidade"], preco: 249.9, precoAntigo: 289.9, cor: "c9a24b", tamanhos: TAMANHOS_PLUS, imagens: ["produtos/macacao-bege-1.jpg", "produtos/macacao-bege-2.jpg", "produtos/macacao-bege-3.jpg"] },
 ];
 
-function imagemProduto(p) {
-  if (p.imagem) return p.imagem;
+function imagensProduto(p) {
+  if (p.imagens && p.imagens.length) return p.imagens;
   const nomeUrl = encodeURIComponent(p.nome);
-  return `https://placehold.co/450x600/${p.cor}/fbf1ef?text=${nomeUrl}`;
+  return [`https://placehold.co/450x600/${p.cor}/fbf1ef?text=${nomeUrl}`];
 }
 
 function formatarPreco(valor) {
@@ -106,6 +112,8 @@ function formatarPreco(valor) {
 let filtroAtivo = "todos";
 let termoBusca = "";
 let carrinho = carregarCarrinho();
+const tamanhoSelecionado = {}; // { produtoId: "M" }
+const imagemAtual = {}; // { produtoId: indiceDaFoto }
 
 function carregarCarrinho() {
   try {
@@ -143,33 +151,102 @@ function renderizarProdutos() {
   }
 
   grid.innerHTML = lista
-    .map(
-      (p) => `
+    .map((p) => {
+      const imgs = imagensProduto(p);
+      const indiceAtual = imagemAtual[p.id] || 0;
+
+      return `
     <article class="produto-card">
-      <div class="produto-thumb">
+      <div class="produto-thumb" data-thumb="${p.id}">
         ${p.tags.includes("novidade") ? '<span class="produto-tag">Novo</span>' : ""}
-        <img src="${imagemProduto(p)}" alt="${p.nome}" loading="lazy" />
+        <img src="${imgs[indiceAtual]}" alt="${p.nome}" data-img="${p.id}" loading="lazy" />
+        ${
+          imgs.length > 1
+            ? `
+          <button type="button" class="img-nav img-nav-prev" data-img-prev="${p.id}" aria-label="Foto anterior">&#8249;</button>
+          <button type="button" class="img-nav img-nav-next" data-img-next="${p.id}" aria-label="Próxima foto">&#8250;</button>
+          <div class="img-dots" data-dots="${p.id}">
+            ${imgs.map((_, i) => `<span class="img-dot${i === indiceAtual ? " active" : ""}" data-dot-index="${i}"></span>`).join("")}
+          </div>
+        `
+            : ""
+        }
         <button class="produto-quick" data-add="${p.id}">Adicionar ao carrinho</button>
       </div>
       <div class="produto-info">
         <span class="produto-cat">${p.categoria === "feminino" ? "Feminino" : "Masculino"}</span>
         <h3>${p.nome}</h3>
+        <div class="tamanho-select" data-produto-tamanhos="${p.id}">
+          ${p.tamanhos
+            .map(
+              (t) =>
+                `<button type="button" class="tamanho-btn" data-tamanho-btn="${p.id}" data-tamanho="${t}">${t}</button>`
+            )
+            .join("")}
+        </div>
         <div class="produto-preco">
           <span class="preco-atual">${formatarPreco(p.preco)}</span>
           ${p.precoAntigo ? `<span class="preco-antigo">${formatarPreco(p.precoAntigo)}</span>` : ""}
         </div>
       </div>
     </article>
-  `
-    )
+  `;
+    })
     .join("");
 }
 
+function trocarImagem(id, novoIndice) {
+  const imgs = imagensProduto(PRODUTOS.find((p) => p.id === id));
+  const total = imgs.length;
+  const indice = ((novoIndice % total) + total) % total;
+  imagemAtual[id] = indice;
+
+  const thumb = document.querySelector(`[data-thumb="${id}"]`);
+  if (!thumb) return;
+  thumb.querySelector(`[data-img="${id}"]`).src = imgs[indice];
+  thumb.querySelectorAll(`[data-dots="${id}"] .img-dot`).forEach((dot, i) => {
+    dot.classList.toggle("active", i === indice);
+  });
+}
+
 grid.addEventListener("click", (e) => {
+  const imgPrev = e.target.closest("[data-img-prev]");
+  const imgNext = e.target.closest("[data-img-next]");
+  if (imgPrev) {
+    const id = Number(imgPrev.dataset.imgPrev);
+    trocarImagem(id, (imagemAtual[id] || 0) - 1);
+    return;
+  }
+  if (imgNext) {
+    const id = Number(imgNext.dataset.imgNext);
+    trocarImagem(id, (imagemAtual[id] || 0) + 1);
+    return;
+  }
+
+  const tamanhoBtn = e.target.closest("[data-tamanho-btn]");
+  if (tamanhoBtn) {
+    const produtoId = tamanhoBtn.dataset.tamanhoBtn;
+    tamanhoSelecionado[produtoId] = tamanhoBtn.dataset.tamanho;
+    const grupo = tamanhoBtn.closest("[data-produto-tamanhos]");
+    grupo.querySelectorAll(".tamanho-btn").forEach((b) => b.classList.remove("active"));
+    tamanhoBtn.classList.add("active");
+    return;
+  }
+
   const btn = e.target.closest("[data-add]");
   if (!btn) return;
   const id = Number(btn.dataset.add);
-  adicionarAoCarrinho(id);
+  const tamanho = tamanhoSelecionado[id];
+  if (!tamanho) {
+    mostrarToast("Escolha um tamanho antes de adicionar");
+    const grupo = document.querySelector(`[data-produto-tamanhos="${id}"]`);
+    if (grupo) {
+      grupo.classList.add("tamanho-aviso");
+      setTimeout(() => grupo.classList.remove("tamanho-aviso"), 900);
+    }
+    return;
+  }
+  adicionarAoCarrinho(id, tamanho);
 });
 
 // ---------- Filtros (abas + menu + categorias + footer) ----------
@@ -238,34 +315,34 @@ overlay.addEventListener("click", () => {
   fecharCheckout();
 });
 
-function adicionarAoCarrinho(id) {
+function adicionarAoCarrinho(id, tamanho) {
   const produto = PRODUTOS.find((p) => p.id === id);
   if (!produto) return;
-  const item = carrinho.find((i) => i.id === id);
+  const item = carrinho.find((i) => i.id === id && i.tamanho === tamanho);
   if (item) {
     item.qtd += 1;
   } else {
-    carrinho.push({ id, qtd: 1 });
+    carrinho.push({ id, tamanho, qtd: 1 });
   }
   salvarCarrinho();
   atualizarCarrinho();
-  mostrarToast(`${produto.nome} adicionado ao carrinho`);
+  mostrarToast(`${produto.nome} (tam. ${tamanho}) adicionado ao carrinho`);
   abrirCarrinho();
 }
 
-function alterarQuantidade(id, delta) {
-  const item = carrinho.find((i) => i.id === id);
+function alterarQuantidade(id, tamanho, delta) {
+  const item = carrinho.find((i) => i.id === id && i.tamanho === tamanho);
   if (!item) return;
   item.qtd += delta;
   if (item.qtd <= 0) {
-    carrinho = carrinho.filter((i) => i.id !== id);
+    carrinho = carrinho.filter((i) => !(i.id === id && i.tamanho === tamanho));
   }
   salvarCarrinho();
   atualizarCarrinho();
 }
 
-function removerItem(id) {
-  carrinho = carrinho.filter((i) => i.id !== id);
+function removerItem(id, tamanho) {
+  carrinho = carrinho.filter((i) => !(i.id === id && i.tamanho === tamanho));
   salvarCarrinho();
   atualizarCarrinho();
 }
@@ -290,17 +367,17 @@ function atualizarCarrinho() {
         if (!p) return "";
         return `
         <div class="cart-item">
-          <img src="${imagemProduto(p)}" alt="${p.nome}" />
+          <img src="${imagensProduto(p)[0]}" alt="${p.nome}" />
           <div>
             <h4>${p.nome}</h4>
-            <div class="cart-item-meta">${formatarPreco(p.preco)} cada</div>
+            <div class="cart-item-meta">Tam. ${item.tamanho} · ${formatarPreco(p.preco)} cada</div>
             <div class="qty-control">
-              <button data-menos="${p.id}" aria-label="Diminuir quantidade">-</button>
+              <button data-menos="${p.id}" data-tamanho="${item.tamanho}" aria-label="Diminuir quantidade">-</button>
               <span>${item.qtd}</span>
-              <button data-mais="${p.id}" aria-label="Aumentar quantidade">+</button>
+              <button data-mais="${p.id}" data-tamanho="${item.tamanho}" aria-label="Aumentar quantidade">+</button>
             </div>
           </div>
-          <button class="cart-item-remove" data-remover="${p.id}">Remover</button>
+          <button class="cart-item-remove" data-remover="${p.id}" data-tamanho="${item.tamanho}">Remover</button>
         </div>`;
       })
       .join("");
@@ -315,9 +392,9 @@ cartItemsEl.addEventListener("click", (e) => {
   const mais = e.target.closest("[data-mais]");
   const menos = e.target.closest("[data-menos]");
   const remover = e.target.closest("[data-remover]");
-  if (mais) alterarQuantidade(Number(mais.dataset.mais), 1);
-  if (menos) alterarQuantidade(Number(menos.dataset.menos), -1);
-  if (remover) removerItem(Number(remover.dataset.remover));
+  if (mais) alterarQuantidade(Number(mais.dataset.mais), mais.dataset.tamanho, 1);
+  if (menos) alterarQuantidade(Number(menos.dataset.menos), menos.dataset.tamanho, -1);
+  if (remover) removerItem(Number(remover.dataset.remover), remover.dataset.tamanho);
 });
 
 // ---------- Checkout ----------
@@ -354,7 +431,7 @@ function montarMensagemWhatsApp(nome, telefone, entrega) {
     if (!p) return "";
     const valorUnitario = formatarPreco(p.preco);
     const valorLinha = formatarPreco(p.preco * item.qtd);
-    return `• ${item.qtd}x ${p.nome} (${valorUnitario} cada) — ${valorLinha}`;
+    return `• ${item.qtd}x ${p.nome} — Tam. ${item.tamanho} (${valorUnitario} cada) — ${valorLinha}`;
   });
 
   const tipoEntrega = entrega === "entrega" ? "Combinar entrega" : "Retirar na loja";
