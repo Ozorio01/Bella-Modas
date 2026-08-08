@@ -5,7 +5,7 @@
 // ---------- Dados da loja ----------
 // Edite aqui: número de WhatsApp com DDI 55 + DDD, sem espaços/traços.
 const LOJA = {
-  whatsapp: "5511999999999",
+  whatsapp: "5519981165995",
 };
 
 // ---------- Eventos na loja ----------
@@ -347,13 +347,16 @@ function montarMensagemWhatsApp(nome, telefone, entrega) {
   const linhas = carrinho.map((item) => {
     const p = PRODUTOS.find((prod) => prod.id === item.id);
     if (!p) return "";
-    return `• ${item.qtd}x ${p.nome} — ${formatarPreco(p.preco * item.qtd)}`;
+    const valorUnitario = formatarPreco(p.preco);
+    const valorLinha = formatarPreco(p.preco * item.qtd);
+    return `• ${item.qtd}x ${p.nome} (${valorUnitario} cada) — ${valorLinha}`;
   });
 
   const tipoEntrega = entrega === "entrega" ? "Combinar entrega" : "Retirar na loja";
 
   const mensagem = [
-    "Olá! Quero reservar estas peças da Bella Modas:",
+    "Olá, Bella Modas! 💗",
+    "Quero reservar estas peças:",
     "",
     ...linhas,
     "",
